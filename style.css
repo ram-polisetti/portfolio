@@ -74,6 +74,7 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.8);;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
+  /* display: block; */
 }
 
 /* @media (min-width: 769px) {
@@ -92,11 +93,11 @@ a:hover {
 /* HAMBURGER MENU */
 
 #hamburger-nav {
-  background-color: #ffffff;
   display: none;
-  -webkit-backdrop-filter: blur(20px);
+  /* -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.8);
+  position: sticky; */
 }
 @media (max-width: 769px) {
 
@@ -118,6 +119,7 @@ a:hover {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  /* position: sticky; */
 }
 
 .hamburger-icon {
@@ -127,6 +129,7 @@ a:hover {
   height: 20px;
   width: 25px;
   cursor: pointer;
+  /* position: sticky; */
 }
 
 .hamburger-icon span {
