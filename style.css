@@ -481,3 +481,7 @@ footer {
 footer p {
   text-align: center;
 }
+
+.author {
+  text-align: right;
+}
