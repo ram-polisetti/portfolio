@@ -3977,6 +3977,7 @@ input, select, textarea {
 	#buttonContainer {
 	  flex-direction: column;
 	  padding-top: 20px;
+	  padding: 0 5%;
 	}
   
 	#buttonContainer a.button {
