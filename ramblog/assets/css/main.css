@@ -3958,7 +3958,7 @@ input, select, textarea {
 			align-items: center !important; /* Aligns buttons vertically */
 			flex-wrap: wrap !important; /* Allows buttons to wrap to a new line on small screens */
 			min-height: 4em !important; /* Provides a minimum height for the container */
-			padding: 0 50px;  /* Adds padding to the left and right */
+			padding: 0 8%;  /* Adds padding to the left and right */
 			/* box-sizing: border-box; */
 			padding-top: 20px
 		}
