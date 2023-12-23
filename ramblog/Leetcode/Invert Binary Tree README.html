@@ -3,14 +3,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////Users/ramcharansatyasaitejapolisetti/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.11/crossnote/dependencies/katex/katex.min.css">
-      
-      
-      
-      
+
       
       <style>
-                              .container {
+            .container {
             display: flex;
             flex-direction: row; /* Default to side-by-side */
             flex-wrap: wrap; /* This will allow items to wrap onto the next line as needed */
@@ -39,15 +35,15 @@
             }
             }
 
-
-
       </style>
-</head>
-<body for="html-export">
+      </head>
+      <body for="html-export">
     
       <div class="container">
             <div class="problem">
-      
+
+
+
 <h2><a href="https://leetcode.com/problems/invert-binary-tree/">226. Invert Binary Tree</a></h2><h3>Easy</h3><hr><div><p>Given the <code>root</code> of a binary tree, invert the tree, and return <em>its root</em>.</p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -72,43 +68,41 @@
 </ul>
 </div>
 
+
       </div>
-      
-      
-    
+
       <div class="solution">
             <!-- solution code HTML goes here -->
             <h3>Solution</h3>
-            <pre>
-                  <p>Python</p>
+            <pre><p>Python</p>
                   <code>
-                  
-                
-                # Definition for a binary tree node.
-                # class TreeNode(object):
-                #     def __init__(self, val=0, left=None, right=None):
-                #         self.val = val
-                #         self.left = left
-                #         self.right = right
-                class Solution(object):
-                    def invertTree(self, root):
-                        """
-                        :type root: TreeNode
-                        :rtype: TreeNode
-                        """
-                        if not root:
-                            return  None
-                        
-                        temp_node = root.left
-                        root.left = root.right
-                        root.right = temp_node
-                        
-                        self.invertTree(root.left)
-                        self.invertTree(root.right)
-                        return root
-                        
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return  None
+        
+        temp_node = root.left
+        root.left = root.right
+        root.right = temp_node
+        
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        return root
+                                
+                                
                 
             </code></pre>
+      
             <div class="approach">
                   <h3>Approach</h3>
                   <p>
@@ -117,9 +111,5 @@
                         The approach I took to solve the problem
                   </p>
               </div>
-    
-            </div>
-      </div>
-    
-  
+        </div>
     </body></html>
