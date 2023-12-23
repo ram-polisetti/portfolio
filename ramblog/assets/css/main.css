@@ -3953,31 +3953,33 @@ input, select, textarea {
 
 		/* Buttons side by side */
 #buttonContainer {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 15px;
-	min-height: 4em; 
-  }
+			display: flex !important; /* Aligns buttons in a row */
+			justify-content: center !important; /* Centers buttons in the container */
+			align-items: center !important; /* Aligns buttons vertically */
+			flex-wrap: wrap !important; /* Allows buttons to wrap to a new line on small screens */
+			min-height: 4em !important; /* Provides a minimum height for the container */
+			padding: 0 50px;  /* Adds padding to the left and right */
+			/* box-sizing: border-box; */
+			padding-top: 20px
+		}
   
   #buttonContainer a.button {
 	text-transform: capitalize;
 	margin-bottom: 15px; /* Space between buttons when wrapped */
-  }
+	margin: 3px;
+	font-size: 1em !important;
+	display: inline-block !important;
+  	vertical-align: middle !important;
+  	white-space: nowrap !important;
+}
   
-  @media (max-width: 736px) {
+  @media (max-width: 736) {
 	#buttonContainer {
 	  flex-direction: column;
 	}
   
 	#buttonContainer a.button {
-		flex: 1; /* Allows buttons to grow and take up equal space */
-		margin: 0 10px; /* Spacing between buttons */
-		text-transform: capitalize; /* Capitalizes the first letter */
-		box-sizing: border-box; /* Ensures padding doesn't affect overall width */
-		text-align: center; /* Center text inside the button */
-		padding: 1em 2em; /* Increase padding for bigger buttons */
-		font-size: 1.25em; /* Increase font size for bigger text */
-	  }
+		width: 100%; /* Makes buttons full width on smaller screens */
+		margin: 10px 0;
+	}
   }
-  
