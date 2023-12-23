@@ -3950,3 +3950,34 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+		/* Buttons side by side */
+#buttonContainer {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 15px;
+	min-height: 4em; 
+  }
+  
+  #buttonContainer a.button {
+	text-transform: capitalize;
+	margin-bottom: 15px; /* Space between buttons when wrapped */
+  }
+  
+  @media (max-width: 736px) {
+	#buttonContainer {
+	  flex-direction: column;
+	}
+  
+	#buttonContainer a.button {
+		flex: 1; /* Allows buttons to grow and take up equal space */
+		margin: 0 10px; /* Spacing between buttons */
+		text-transform: capitalize; /* Capitalizes the first letter */
+		box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+		text-align: center; /* Center text inside the button */
+		padding: 1em 2em; /* Increase padding for bigger buttons */
+		font-size: 1.25em; /* Increase font size for bigger text */
+	  }
+  }
+  
