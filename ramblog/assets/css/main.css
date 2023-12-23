@@ -3976,6 +3976,7 @@ input, select, textarea {
   @media (max-width: 736) {
 	#buttonContainer {
 	  flex-direction: column;
+	  padding-top: 20px
 	}
   
 	#buttonContainer a.button {
