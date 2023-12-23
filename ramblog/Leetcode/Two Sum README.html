@@ -2,6 +2,12 @@
       <title>Two Sum README</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+      <!-- Include one of the Atom themes provided by Highlight.js -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" />
+      <!-- Initialize Highlight.js -->
+      <script>hljs.initHighlightingOnLoad();</script>
       <style>
 
                   .container {
@@ -21,6 +27,44 @@
                   border-right: 2px solid grey;
                   }
 
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        background-color: #282c34;
+                        color: #abb2bf;
+                        border-radius: 4px;
+                        overflow-x: auto;
+                        padding-left: 10px;
+                        }
+                        .token.operator {
+                        color: #56b6c2;
+                        }
+
+                        .token.comment {
+                        color: #5c6370;
+                        font-style: italic;
+                        }
+
+                        .token.keyword {
+                        color: #c678dd;
+                        }
+
+                        .token.variable {
+                        color: #e06c75;
+                        }
+
+                        .token.string {
+                        color: #98c379;
+                        }
+
+                        .token.number {
+                        color: #d19a66;
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
 
                   @media screen and (max-width: 1024px) {
                   .container {
@@ -31,6 +75,16 @@
                         width: 100%; /* Set width to full width for small screens */
                         border-right: none; /* Remove the border for the problem section */
                   }
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
 
                   }
 
@@ -74,17 +128,12 @@
 
       </div>
       
-      
-
-
-
 
       <div class="solution">
             <!-- solution code HTML goes here -->
             <h3>Solution</h3>
             <pre><p>Python</p>
-                  <code>
-                
+                  <code class="language-python">
 class Solution(object):
 def twoSum(self, nums, target):
       """
