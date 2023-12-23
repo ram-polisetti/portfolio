@@ -11,28 +11,34 @@
       
       <style>
             .container {
-                display: flex;
+            display: flex;
+            flex-direction: row; /* Default to side-by-side */
+            flex-wrap: wrap; /* This will allow items to wrap onto the next line as needed */
             }
-    
+
             .problem, .solution {
-                width: 50%;
-                padding: 10px;
-                box-sizing: border-box;
-            }
-            .problem {
-                border-right: 2px solid grey;
-            }
-            pre {
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
+            width: 50%;
             padding: 10px;
+            box-sizing: border-box;
             }
-            code {
-                  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+            .problem {
+            border-right: 2px solid grey;
             }
-            .approach {
-                  margin-top: 20px; /* Adjust as needed */
+
+            /* Other styles... */
+
+            @media screen and (max-width: 1024px) {
+            .container {
+                  flex-direction: column; /* Stack elements vertically on small screens */
             }
+
+            .problem, .solution {
+                  width: 100%; /* Set width to full width for small screens */
+                  border-right: none; /* Remove the border for the problem section */
+            }
+            }
+
 
       </style>
 </head>
@@ -72,6 +78,7 @@
       <div class="solution">
             <!-- solution code HTML goes here -->
             <pre><code>
+                  <h3>Solution</h3>
                 <p>Python</p>
                 # Definition for a binary tree node.
                 # class TreeNode(object):
