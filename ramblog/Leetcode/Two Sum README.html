@@ -2,39 +2,38 @@
       <title>Two Sum README</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-
-      
-      
       <style>
-            .container {
-            display: flex;
-            flex-direction: row; /* Default to side-by-side */
-            flex-wrap: wrap; /* This will allow items to wrap onto the next line as needed */
-            }
 
-            .problem, .solution {
-            width: 50%;
-            padding: 10px;
-            box-sizing: border-box;
-            }
+                  .container {
+                  display: flex;
+                  flex-direction: row; /* Default to side-by-side */
+                  flex-wrap: wrap; /* This will allow items to wrap onto the next line as needed */
+                  width: 100vw; /* This will make the container take the full width of the viewport */
+                  }
 
-            .problem {
-            border-right: 2px solid grey;
-            }
+                  .problem, .solution {
+                  width: 50%; /* This sets the initial width to half of the container */
+                  padding: 10px;
+                  box-sizing: border-box; /* Includes padding and border in the width */
+                  }
 
-            /* Other styles... */
+                  .problem {
+                  border-right: 2px solid grey;
+                  }
 
-            @media screen and (max-width: 1024px) {
-            .container {
-                  flex-direction: column; /* Stack elements vertically on small screens */
-            }
 
-            .problem, .solution {
-                  width: 100%; /* Set width to full width for small screens */
-                  border-right: none; /* Remove the border for the problem section */
-            }
-            }
+                  @media screen and (max-width: 1024px) {
+                  .container {
+                        flex-direction: column; /* Stack elements vertically on small screens */
+                  }
+
+                  .problem, .solution {
+                        width: 100%; /* Set width to full width for small screens */
+                        border-right: none; /* Remove the border for the problem section */
+                  }
+
+                  }
+
 
       </style>
       </head>
