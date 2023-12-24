@@ -184,24 +184,24 @@
                   <code class="language-python">
 class Solution(object):
     
-def isValid(self, s):
-    """
-    :type s: str
-      :rtype: bool
-      """
-      stack = []
-      closeToOpen = {")":"(", "[", "}":"{"}
-                    
-      for c in s:
-            if c in closeToOpen:
-            if stack and stack[== closeToOpen[c]:
-                  stack.pop()
-            else:
-                  return False
-                                
-            else:
-            stack.append(c)
-      return True if not stack eF
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        closeToOpen = {")":"(", "[", "}":"{"}
+                        
+        for c in s:
+                if c in closeToOpen:
+                if stack and stack[== closeToOpen[c]:
+                    stack.pop()
+                else:
+                    return False
+                                    
+                else:
+                stack.append(c)
+        return True if not stack else False
                 
             </code></pre>
 
