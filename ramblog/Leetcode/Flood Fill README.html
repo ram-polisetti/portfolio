@@ -178,17 +178,29 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
             <h3>Solution</h3>
             <pre><p>Python</p>
                   <code class="language-python">
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        for i in range(0, len(nums)):
-                for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+                class Solution(object):
+                    def floodFill(self, image, sr, sc, color):
+                        """
+                        :type image: List[List[int]]
+                        :type sr: int
+                        :type sc: int
+                        :type color: int
+                        :rtype: List[List[int]]
+                        """
+                        source = image[sr][sc]
+                        rows = len(image)
+                        columns = len(image[0])
+                        
+                        def flood_fill(sr, sc):
+                            if 0<= sr < rows and 0<= sc < columns and image[sr][sc]==source and image[sr][sc]!= color:
+                                image[sr][sc] = color
+                                
+                                flood_fill(sr-1, sc)
+                                flood_fill(sr+1, sc)
+                                flood_fill(sr, sc-1)
+                                flood_fill(sr, sc+1)
+                        flood_fill(sr, sc)
+                        return image
             </code></pre>
             <div class="approach">
                   <h3>Approach</h3>
