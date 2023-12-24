@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head>
+      <title>Binary Search README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+  
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" />
+      <script>hljs.initHighlightingOnLoad();</script>
+      <style>
+
+                  .container {
+                  display: flex;
+                  flex-direction: row; /* Default to side-by-side */
+                  flex-wrap: stretch; 
+                  min-height: 100vh;
+                  }
+
+                  .problem, .solution {
+                  width: 50%; /* This sets the initial width to half of the container */
+                  padding: 10px;
+                  box-sizing: border-box; /* Includes padding and border in the width */
+                  }
+
+                  .problem {
+                  border-right: 2px solid grey;
+                  }
+
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        background-color: #282c34;
+                        color: #abb2bf;
+                        border-radius: 4px;
+                        overflow-x: auto;
+                        padding-left: 10px;
+                        }
+                        .token.operator {
+                        color: #56b6c2;
+                        }
+
+                        .token.comment {
+                        color: #5c6370;
+                        font-style: italic;
+                        }
+
+                        .token.keyword {
+                        color: #c678dd;
+                        }
+
+                        .token.variable {
+                        color: #e06c75;
+                        }
+
+                        .token.string {
+                        color: #98c379;
+                        }
+
+                        .token.number {
+                        color: #d19a66;
+                        }
+                        .token.punctuation {
+    color: #ffcc00; /* Gold color for punctuation */
+}
+
+.token.function {
+    color: #61afef; /* Light blue color for functions */
+}
+
+.token.class-name {
+    color: #e5c07b; /* Sandy color for class names */
+}
+
+.token.constant {
+    color: #d19a66; /* Orange color for constants */
+}
+
+.token.boolean {
+    color: #56b6c2; /* Cyan color for boolean values */
+}
+
+.token.property {
+    color: #abb2bf; /* Light grey color for properties */
+}
+
+.token.selector {
+    color: #98c379; /* Green color for selectors */
+}
+
+.token.important {
+    color: #e06c75; /* Red color for important tokens */
+}
+
+.token.atrule {
+    color: #c678dd; /* Purple color for CSS at-rules */
+}
+
+.token.regexp {
+    color: #56b6c2; /* Cyan color for regular expressions */
+}
+
+.token.builtin {
+    color: #61afef; /* Light blue color for built-in methods or functions */
+}
+
+/* Add any other specific tokens you need */
+
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  @media screen and (max-width: 1024px) {
+                  .container {
+                        flex-direction: column; /* Stack elements vertically on small screens */
+                  }
+
+                  .problem, .solution {
+                        width: 100%; /* Set width to full width for small screens */
+                        border-right: none; /* Remove the border for the problem section */
+                  }
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  }
+
+
+      </style>
+      </head>
+      <body for="html-export">
+    
+      <div class="container">
+            <div class="problem">
+
+
+<h2><a href="https://leetcode.com/problems/binary-search/">704. Binary Search</a></h2><h3>Easy</h3><hr><div><p>Given an array of integers <code>nums</code> which is sorted in ascending order, and an integer <code>target</code>, write a function to search <code>target</code> in <code>nums</code>. If <code>target</code> exists, then return its index. Otherwise, return <code>-1</code>.</p>
+<p>You must write an algorithm with <code>O(log n)</code> runtime complexity.</p>
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 9
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> 9 exists in nums and its index is 4
+</pre>
+<p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 2
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> 2 does not exist in nums so return -1
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt; nums[i], target &lt; 10<sup>4</sup></code></li>
+	<li>All the integers in <code>nums</code> are <strong>unique</strong>.</li>
+	<li><code>nums</code> is sorted in ascending order.</li>
+</ul>
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+      </div>
+      <div class="solution">
+            <!-- solution code HTML goes here -->
+            <h3>Solution</h3>
+            <pre><p>Python</p>
+                  <code class="language-python">
+                  class Solution(object):
+                        def search(self, nums, target):
+                            """
+                            :type nums: List[int]
+                            :type target: int
+                            :rtype: int
+                            """
+                            left = 0
+                            right = len(nums) - 1
+                            while left <= right:
+                                mid = (left + right)//2
+                                if nums[mid] == target:
+                                    return mid
+                                elif nums[mid] > target:
+                                    right = mid -1 
+                                else:
+                                    left = mid + 1
+                            return -1 
+                            
+            </code></pre>
+            <div class="approach">
+                  <h3>Approach</h3>
+                  <p>
+                      The approach I took to solve the problem
+                  </p>
+              </div>
+        </div>
+    </div>
+    </body></html>
