@@ -1,0 +1,246 @@
+<!DOCTYPE html><html><head>
+      <title>Implement Queue using Stacks README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" />
+      <script>hljs.initHighlightingOnLoad();</script>
+      <style>
+
+                  .container {
+                  display: flex;
+                  flex-direction: row; /* Default to side-by-side */
+                  flex-wrap: stretch; 
+                  min-height: 100vh;
+                  }
+
+                  .problem, .solution {
+                  width: 50%; /* This sets the initial width to half of the container */
+                  padding: 10px;
+                  box-sizing: border-box; /* Includes padding and border in the width */
+                  }
+
+                  .problem {
+                  border-right: 2px solid grey;
+                  }
+
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        background-color: #282c34;
+                        color: #abb2bf;
+                        border-radius: 4px;
+                        overflow-x: auto;
+                        padding-left: 10px;
+                        }
+                        .token.operator {
+                        color: #56b6c2;
+                        }
+
+                        .token.comment {
+                        color: #5c6370;
+                        font-style: italic;
+                        }
+
+                        .token.keyword {
+                        color: #c678dd;
+                        }
+
+                        .token.variable {
+                        color: #e06c75;
+                        }
+
+                        .token.string {
+                        color: #98c379;
+                        }
+
+                        .token.number {
+                        color: #d19a66;
+                        }
+                        .token.punctuation {
+    color: #ffcc00; /* Gold color for punctuation */
+}
+
+.token.function {
+    color: #61afef; /* Light blue color for functions */
+}
+
+.token.class-name {
+    color: #e5c07b; /* Sandy color for class names */
+}
+
+.token.constant {
+    color: #d19a66; /* Orange color for constants */
+}
+
+.token.boolean {
+    color: #56b6c2; /* Cyan color for boolean values */
+}
+
+.token.property {
+    color: #abb2bf; /* Light grey color for properties */
+}
+
+.token.selector {
+    color: #98c379; /* Green color for selectors */
+}
+
+.token.important {
+    color: #e06c75; /* Red color for important tokens */
+}
+
+.token.atrule {
+    color: #c678dd; /* Purple color for CSS at-rules */
+}
+
+.token.regexp {
+    color: #56b6c2; /* Cyan color for regular expressions */
+}
+
+.token.builtin {
+    color: #61afef; /* Light blue color for built-in methods or functions */
+}
+
+/* Add any other specific tokens you need */
+
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  @media screen and (max-width: 1024px) {
+                  .container {
+                        flex-direction: column; /* Stack elements vertically on small screens */
+                  }
+
+                  .problem, .solution {
+                        width: 100%; /* Set width to full width for small screens */
+                        border-right: none; /* Remove the border for the problem section */
+                  }
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  }
+
+
+      </style>
+      </head>
+      <body for="html-export">
+    
+      <div class="container">
+            <div class="problem">
+
+   
+
+<h2><a href="https://leetcode.com/problems/implement-queue-using-stacks/">232. Implement Queue using Stacks</a></h2><h3>Easy</h3><hr><div><p>Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (<code>push</code>, <code>peek</code>, <code>pop</code>, and <code>empty</code>).</p>
+<p>Implement the <code>MyQueue</code> class:</p>
+<ul>
+	<li><code>void push(int x)</code> Pushes element x to the back of the queue.</li>
+	<li><code>int pop()</code> Removes the element from the front of the queue and returns it.</li>
+	<li><code>int peek()</code> Returns the element at the front of the queue.</li>
+	<li><code>boolean empty()</code> Returns <code>true</code> if the queue is empty, <code>false</code> otherwise.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+	<li>You must use <strong>only</strong> standard operations of a stack, which means only <code>push to top</code>, <code>peek/pop from top</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
+	<li>Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input</strong>
+["MyQueue", "push", "push", "peek", "pop", "empty"]
+[[], [1], [2], [], [], []]
+<strong>Output</strong>
+[null, null, null, 1, 1, false]
+
+<strong>Explanation</strong>
+MyQueue myQueue = new MyQueue();
+myQueue.push(1); // queue is: [1]
+myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
+myQueue.peek(); // return 1
+myQueue.pop(); // return 1, queue is [2]
+myQueue.empty(); // return false
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+	<li><code>1 &lt;= x &lt;= 9</code></li>
+	<li>At most <code>100</code>&nbsp;calls will be made to <code>push</code>, <code>pop</code>, <code>peek</code>, and <code>empty</code>.</li>
+	<li>All the calls to <code>pop</code> and <code>peek</code> are valid.</li>
+</ul>
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+      </div>
+      <div class="solution">
+            <!-- solution code HTML goes here -->
+            <h3>Solution</h3>
+            <pre><p>Python</p>
+                  <code class="language-python">
+                  class MyQueue(object):
+
+                        def __init__(self):
+                            self.l1 = []
+                            self.l2 = []
+                            
+                    
+                        def push(self, x):
+                            """
+                            :type x: int
+                            :rtype: None
+                            """
+                            while self.l1:
+                                self.l2.append(self.l1.pop())
+                            self.l1.append(x)
+                            
+                            while self.l2:
+                                self.l1.append(self.l2.pop())
+                    
+                        def pop(self):
+                            """
+                            :rtype: int
+                            """
+                            return self.l1.pop()
+                            
+                    
+                        def peek(self):
+                            """
+                            :rtype: int
+                            """
+                            return self.l1[-1]
+                            
+                    
+                        def empty(self):
+                            """
+                            :rtype: bool
+                            """
+                            return not self.l1
+                            
+                    
+                    
+                    # Your MyQueue object will be instantiated and called as such:
+                    # obj = MyQueue()
+                    # obj.push(x)
+                    # param_2 = obj.pop()
+                    # param_3 = obj.peek()
+                    # param_4 = obj.empty()
+            </code></pre>
+            <div class="approach">
+                  <h3>Approach</h3>
+                  <p>
+                      The approach I took to solve the problem
+                  </p>
+              </div>
+        </div>
+    </div>
+    </body></html>
