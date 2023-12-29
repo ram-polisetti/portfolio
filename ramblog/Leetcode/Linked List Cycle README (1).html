@@ -1,0 +1,217 @@
+<!DOCTYPE html><html><head>
+      <title>Linked List Cycle README (1)</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/ramcharansatyasaitejapolisetti/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.11/crossnote/dependencies/katex/katex.min.css">
+      
+   
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" />
+      <script>hljs.initHighlightingOnLoad();</script>
+      <style>
+
+                  .container {
+                  display: flex;
+                  flex-direction: row; /* Default to side-by-side */
+                  flex-wrap: stretch; 
+                  min-height: 100vh;
+                  }
+
+                  .problem, .solution {
+                  width: 50%; /* This sets the initial width to half of the container */
+                  padding: 10px;
+                  box-sizing: border-box; /* Includes padding and border in the width */
+                  }
+
+                  .problem {
+                  border-right: 2px solid grey;
+                  }
+
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        background-color: #282c34;
+                        color: #abb2bf;
+                        border-radius: 4px;
+                        overflow-x: auto;
+                        padding-left: 10px;
+                        }
+                        .token.operator {
+                        color: #56b6c2;
+                        }
+
+                        .token.comment {
+                        color: #5c6370;
+                        font-style: italic;
+                        }
+
+                        .token.keyword {
+                        color: #c678dd;
+                        }
+
+                        .token.variable {
+                        color: #e06c75;
+                        }
+
+                        .token.string {
+                        color: #98c379;
+                        }
+
+                        .token.number {
+                        color: #d19a66;
+                        }
+                        .token.punctuation {
+    color: #ffcc00; /* Gold color for punctuation */
+}
+
+.token.function {
+    color: #61afef; /* Light blue color for functions */
+}
+
+.token.class-name {
+    color: #e5c07b; /* Sandy color for class names */
+}
+
+.token.constant {
+    color: #d19a66; /* Orange color for constants */
+}
+
+.token.boolean {
+    color: #56b6c2; /* Cyan color for boolean values */
+}
+
+.token.property {
+    color: #abb2bf; /* Light grey color for properties */
+}
+
+.token.selector {
+    color: #98c379; /* Green color for selectors */
+}
+
+.token.important {
+    color: #e06c75; /* Red color for important tokens */
+}
+
+.token.atrule {
+    color: #c678dd; /* Purple color for CSS at-rules */
+}
+
+.token.regexp {
+    color: #56b6c2; /* Cyan color for regular expressions */
+}
+
+.token.builtin {
+    color: #61afef; /* Light blue color for built-in methods or functions */
+}
+
+/* Add any other specific tokens you need */
+
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  @media screen and (max-width: 1024px) {
+                  .container {
+                        flex-direction: column; /* Stack elements vertically on small screens */
+                  }
+
+                  .problem, .solution {
+                        width: 100%; /* Set width to full width for small screens */
+                        border-right: none; /* Remove the border for the problem section */
+                  }
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  }
+
+
+      </style>
+      </head>
+      <body for="html-export">
+    
+      <div class="container">
+            <div class="problem">
+
+     
+
+
+
+<h2><a href="https://leetcode.com/problems/linked-list-cycle">Linked List Cycle</a></h2> <img src="https://img.shields.io/badge/Difficulty-Easy-brightgreen" alt="Difficulty: Easy"><hr><p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
+<p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the&nbsp;<code>next</code>&nbsp;pointer. Internally, <code>pos</code>&nbsp;is used to denote the index of the node that&nbsp;tail's&nbsp;<code>next</code>&nbsp;pointer is connected to.&nbsp;<strong>Note that&nbsp;<code>pos</code>&nbsp;is not passed as a parameter</strong>.</p>
+<p>Return&nbsp;<code>true</code><em> if there is a cycle in the linked list</em>. Otherwise, return <code>false</code>.</p>
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="width: 300px; height: 97px; margin-top: 8px; margin-bottom: 8px;">
+<pre><strong>Input:</strong> head = [3,2,0,-4], pos = 1
+<strong>Output:</strong> true
+<strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+</pre>
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="width: 141px; height: 74px;">
+<pre><strong>Input:</strong> head = [1,2], pos = 0
+<strong>Output:</strong> true
+<strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 0th node.
+</pre>
+<p><strong class="example">Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="width: 45px; height: 45px;">
+<pre><strong>Input:</strong> head = [1], pos = -1
+<strong>Output:</strong> false
+<strong>Explanation:</strong> There is no cycle in the linked list.
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+	<li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+	<li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
+</ul>
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+      </div>
+      <div class="solution">
+            <!-- solution code HTML goes here -->
+            <h3>Solution</h3>
+            <pre><p>Python</p>
+                  <code class="language-python">
+                        # Definition for singly-linked list.
+                        # class ListNode(object):
+                        #     def __init__(self, x):
+                        #         self.val = x
+                        #         self.next = None
+                        
+                        class Solution(object):
+                            def hasCycle(self, head):
+                                """
+                                :type head: ListNode
+                                :rtype: bool
+                                """
+                                slow, fast = head, head
+                                
+                                while fast and fast.next:
+                                    slow = slow.next
+                                    fast = fast.next.next
+                                    if slow == fast:
+                                        return True
+                                return False
+            </code></pre>
+            <div class="approach">
+                  <h3>Approach</h3>
+                  <p>
+                      The approach I took to solve the problem
+                  </p>
+              </div>
+        </div>
+    </div>
+    </body></html>
