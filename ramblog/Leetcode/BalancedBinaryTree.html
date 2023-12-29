@@ -1,0 +1,214 @@
+<!DOCTYPE html><html><head>
+      <title>Lowest Common Ancestor README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" />
+      <script>hljs.initHighlightingOnLoad();</script>
+      <style>
+
+                  .container {
+                  display: flex;
+                  flex-direction: row; /* Default to side-by-side */
+                  flex-wrap: stretch; 
+                  min-height: 100vh;
+                  }
+
+                  .problem, .solution {
+                  width: 50%; /* This sets the initial width to half of the container */
+                  padding: 10px;
+                  box-sizing: border-box; /* Includes padding and border in the width */
+                  }
+
+                  .problem {
+                  border-right: 2px solid grey;
+                  }
+
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        background-color: #282c34;
+                        color: #abb2bf;
+                        border-radius: 4px;
+                        overflow-x: auto;
+                        padding-left: 10px;
+                        }
+                        .token.operator {
+                        color: #56b6c2;
+                        }
+
+                        .token.comment {
+                        color: #5c6370;
+                        font-style: italic;
+                        }
+
+                        .token.keyword {
+                        color: #c678dd;
+                        }
+
+                        .token.variable {
+                        color: #e06c75;
+                        }
+
+                        .token.string {
+                        color: #98c379;
+                        }
+
+                        .token.number {
+                        color: #d19a66;
+                        }
+                        .token.punctuation {
+    color: #ffcc00; /* Gold color for punctuation */
+}
+
+.token.function {
+    color: #61afef; /* Light blue color for functions */
+}
+
+.token.class-name {
+    color: #e5c07b; /* Sandy color for class names */
+}
+
+.token.constant {
+    color: #d19a66; /* Orange color for constants */
+}
+
+.token.boolean {
+    color: #56b6c2; /* Cyan color for boolean values */
+}
+
+.token.property {
+    color: #abb2bf; /* Light grey color for properties */
+}
+
+.token.selector {
+    color: #98c379; /* Green color for selectors */
+}
+
+.token.important {
+    color: #e06c75; /* Red color for important tokens */
+}
+
+.token.atrule {
+    color: #c678dd; /* Purple color for CSS at-rules */
+}
+
+.token.regexp {
+    color: #56b6c2; /* Cyan color for regular expressions */
+}
+
+.token.builtin {
+    color: #61afef; /* Light blue color for built-in methods or functions */
+}
+
+/* Add any other specific tokens you need */
+
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  @media screen and (max-width: 1024px) {
+                  .container {
+                        flex-direction: column; /* Stack elements vertically on small screens */
+                  }
+
+                  .problem, .solution {
+                        width: 100%; /* Set width to full width for small screens */
+                        border-right: none; /* Remove the border for the problem section */
+                  }
+                  code, pre {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+                        /* You may want to apply the monospace font to other elements where code is displayed */
+                        .container .problem code,
+                        .container .solution code {
+                        font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+                        /* other styles */
+                        }
+
+                  }
+
+
+      </style>
+      </head>
+      <body for="html-export">
+    
+      <div class="container">
+            <div class="problem">
+
+
+<h2><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">235. Lowest Common Ancestor of a Binary Search Tree</a></h2><h3>Medium</h3><hr><div><p>Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.</p>
+<p>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes <code>p</code> and <code>q</code> as the lowest node in <code>T</code> that has both <code>p</code> and <code>q</code> as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</p>
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" style="width: 200px; height: 190px;">
+<pre><strong>Input:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> The LCA of nodes 2 and 8 is 6.
+</pre>
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" style="width: 200px; height: 190px;">
+<pre><strong>Input:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
+</pre>
+<p><strong class="example">Example 3:</strong></p>
+<pre><strong>Input:</strong> root = [2,1], p = 2, q = 1
+<strong>Output:</strong> 2
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[2, 10<sup>5</sup>]</code>.</li>
+	<li><code>-10<sup>9</sup> &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
+	<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
+	<li><code>p != q</code></li>
+	<li><code>p</code> and <code>q</code> will exist in the BST.</li>
+</ul>
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+      </div>
+      <div class="solution">
+            <!-- solution code HTML goes here -->
+            <h3>Solution</h3>
+            <pre><p>Python</p>
+                  <code class="language-python">
+                    # Definition for a binary tree node.
+                    # class TreeNode(object):
+                    #     def __init__(self, val=0, left=None, right=None):
+                    #         self.val = val
+                    #         self.left = left
+                    #         self.right = right
+                    class Solution(object):
+                        def isBalanced(self, root):
+                            """
+                            :type root: TreeNode
+                            :rtype: bool
+                            """
+                            def dfs(root):
+                                if not root:
+                                    return [True, 0]
+                                
+                                left = dfs(root.left)
+                                right = dfs(root.right)
+                                
+                                balanced = (left[0] and right[0]) and (abs(left[1] - right[1]) <=1)
+                                
+                                
+                                return [balanced, 1 + max(left[1], right[1])]
+                            
+                            return dfs(root)[0]
+            </code></pre>
+            <div class="approach">
+                  <h3>Approach</h3>
+                  <p>
+                      The approach I took to solve the problem
+                  </p>
+              </div>
+        </div>
+    </div>
+    </body></html>
